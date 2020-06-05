@@ -1,6 +1,7 @@
 package com.tobiassteely.tobiasapi.api.worker;
 
-import com.tobiassteely.tobiasapi.api.Log;
+import com.tobiassteely.tobiasapi.TobiasAPI;
+import com.tobiassteely.tobiasapi.api.log.Log;
 
 import java.util.ArrayList;
 
@@ -29,7 +30,7 @@ public class ObjectWorker extends Worker {
 
             Object object = queue.get(0);
             if(!processItem(object)) {
-                Log.sendMessage(2, "Killing the worker, setup wrong.");
+                TobiasAPI.getInstance().getLog().sendMessage(2, "Killing the worker, setup wrong.");
                 stopWorker();
                 break;
             } else {

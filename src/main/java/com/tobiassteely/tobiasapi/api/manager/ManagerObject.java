@@ -1,6 +1,9 @@
 package com.tobiassteely.tobiasapi.api.manager;
 
-public class ManagerObject {
+import com.tobiassteely.tobiasapi.TobiasAPI;
+import com.tobiassteely.tobiasapi.api.TobiasObject;
+
+public class ManagerObject extends TobiasObject {
 
     private String key;
 

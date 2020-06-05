@@ -1,15 +1,23 @@
 package com.tobiassteely.tobiasapi.api.manager;
 
+import com.tobiassteely.tobiasapi.api.TobiasObject;
+
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ManagerParent {
+public class ManagerParent extends TobiasObject {
 
     private Vector<ManagerObject> list = null;
     private ConcurrentHashMap<String, ManagerCache> cacheList = null;
 
-    protected ManagerParent() {
-        reload();
+    protected ManagerParent(boolean loadNow) {
+        if(loadNow) {
+            reload();
+        } else {
+            list = new Vector<>();
+            cacheList = new ConcurrentHashMap<>();
+            cacheList.put("key", new ManagerCache());
+        }
     }
 
     public Vector<ManagerObject> getList() {

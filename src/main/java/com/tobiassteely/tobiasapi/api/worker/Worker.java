@@ -1,6 +1,7 @@
 package com.tobiassteely.tobiasapi.api.worker;
 
-import com.tobiassteely.tobiasapi.api.Log;
+import com.tobiassteely.tobiasapi.TobiasAPI;
+import com.tobiassteely.tobiasapi.api.log.Log;
 
 import java.util.ArrayList;
 
@@ -46,7 +47,7 @@ public class Worker extends Thread {
 
             if ((System.currentTimeMillis() - lastLoop) < timer) {
                 if(!runWorker(System.currentTimeMillis())) {
-                    Log.sendMessage(2, "Worker is not overridden! Stopping to preserve CPU.");
+                    TobiasAPI.getInstance().getLog().sendMessage(2, "Worker is not overridden! Stopping to preserve CPU.");
                     break;
                 }
                 tick();

@@ -1,9 +1,10 @@
 package com.tobiassteely.tobiasapi;
 
-import com.tobiassteely.tobiasapi.api.Log;
-import com.tobiassteely.tobiasapi.api.config.ConfigManager;
-import com.tobiassteely.tobiasapi.api.database.Mongo;
-import com.tobiassteely.tobiasapi.api.database.MongoManager;
+import com.tobiassteely.tobiasapi.api.log.Log;
+import com.tobiassteely.tobiasapi.command.CommandManager;
+import com.tobiassteely.tobiasapi.config.ConfigManager;
+import com.tobiassteely.tobiasapi.database.MongoDB;
+import com.tobiassteely.tobiasapi.database.MongoManager;
 
 public class TobiasAPI {
 
@@ -14,59 +15,60 @@ public class TobiasAPI {
     }
 
     private ConfigManager configManager;
-    private Mongo mongo;
     private MongoManager mongoManager;
+    private CommandManager commandManager;
     private boolean databaseSupport;
-    private boolean webserverSupport;
     private boolean commandSupport;
+    private boolean webServerSupport;
+    private Log log;
 
-    public TobiasAPI(String databaseID, String configDirectory, boolean webserverSupport, boolean commandSupport) {
-        this(configDirectory, webserverSupport, commandSupport);
-        this.databaseSupport = true;
-        this.mongo = new Mongo(databaseID);
-        this.mongoManager = new MongoManager();
-    }
-
-    public TobiasAPI(String configDirectory, boolean webserverSupport, boolean commandSupport) {
+    public TobiasAPI(String configDirectory, boolean commandSupport, boolean databaseSupport, boolean webServerSupport, String databaseID) {
         instance = this;
-        this.configManager = new ConfigManager(configDirectory);
-        this.databaseSupport = false;
 
-        this.webserverSupport = webserverSupport;
-        if(webserverSupport) {
-            // setup web server
-            // start web server
+        log = new Log();
+
+        // Load database
+        this.databaseSupport = databaseSupport;
+        if(databaseSupport) {
+            if(databaseID != null) {
+                this.mongoManager = new MongoManager(new MongoDB(databaseID));
+            } else {
+                log.sendMessage(2, "The database server has not started, you are missing the ID.");
+            }
         }
 
+        // Load config manager
+        this.configManager = new ConfigManager(configDirectory);
+
+        // Load command system
         this.commandSupport = commandSupport;
         if(commandSupport) {
-            // setup command system
-            // start command system
+            this.commandManager = new CommandManager();
         }
 
-    }
-
-    public TobiasAPI() {
-        instance = this;
-        this.configManager = new ConfigManager("");
-        this.databaseSupport = false;
+        // Load web server
+        this.webServerSupport = webServerSupport;
+        if(webServerSupport) {
+            // setup web server system
+        }
     }
 
     public ConfigManager getConfigManager() {
         return configManager;
     }
 
-    public Mongo getMongo() {
-        if(!databaseSupport) {
-            Log.sendMessage(2, "The database is not configured this WILL error!");
-        }
-        return mongo;
+    public CommandManager getCommandManager() {
+        return commandManager;
     }
 
     public MongoManager getMongoManager() {
         if(!databaseSupport) {
-            Log.sendMessage(2, "The database is not configured this WILL error!");
+            log.sendMessage(2, "The database is not configured this WILL error!");
         }
         return mongoManager;
+    }
+
+    public Log getLog() {
+        return log;
     }
 }

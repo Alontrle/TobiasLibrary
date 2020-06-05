@@ -6,15 +6,15 @@ public class EventHandler {
 
     private EventManager eventManager;
 
-    public EventHandler(com.tobiassteely.tobiasapi.api.event.EventManager eventManager) {
+    public EventHandler(EventManager eventManager) {
         this.eventManager = eventManager;
     }
 
-    public boolean runEvent(com.tobiassteely.tobiasapi.api.event.Event event) {
+    public boolean runEvent(Event event) {
         return false; // OVERRIDE
     }
 
-    public com.tobiassteely.tobiasapi.api.event.EventManager getEventManager() {
+    public EventManager getEventManager() {
         return eventManager;
     }
 }

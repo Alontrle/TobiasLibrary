@@ -6,11 +6,11 @@ public class Event {
 
     private EventManager eventManager;
 
-    public Event(com.tobiassteely.tobiasapi.api.event.EventManager eventManager) {
+    public Event(EventManager eventManager) {
         this.eventManager = eventManager;
     }
 
-    public com.tobiassteely.tobiasapi.api.event.EventManager getEventManager() {
+    public EventManager getEventManager() {
         return eventManager;
     }
 
