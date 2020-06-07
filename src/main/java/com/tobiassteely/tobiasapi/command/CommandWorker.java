@@ -8,12 +8,17 @@ import java.util.Scanner;
 public class CommandWorker extends Thread {
 
     private boolean isActive = true;
+    private String welcome;
+
+    public CommandWorker(String welcome) {
+        this.welcome = welcome;
+    }
 
     @Override
     public void run() {
 
         TobiasAPI.getInstance().getLog().sendMessage(0, "-----------------------------------------");
-        TobiasAPI.getInstance().getLog().sendMessage(0, "Xilla Discord Core - 2.0.0");
+        TobiasAPI.getInstance().getLog().sendMessage(0, welcome);
         TobiasAPI.getInstance().getLog().sendMessage(0, "-----------------------------------------");
 
         CommandManager commandManager = TobiasAPI.getInstance().getCommandManager();
@@ -26,7 +31,7 @@ public class CommandWorker extends Thread {
             try {
                 String command = scanner.nextLine();
                 if(command != null)
-                    commandManager.runCommand(command);
+                    commandManager.runCommand(command, CommandExecutor.command_line_input);
             } catch (NoSuchElementException ignored) {}
         }
         System.exit(0);

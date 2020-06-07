@@ -11,22 +11,17 @@ import com.tobiassteely.tobiasapi.config.Config;
 public class MongoDB {
 
     private MongoClient client;
-    private MongoDatabase database;
+    private MongoDatabase mongoDatabase;
     private String id;
 
-    public MongoDB(String id) {
+    public MongoDB(String id, String host, String database, String authdb, String username, String password) {
         //Logger mongoLogger = Logger.getLogger( "org.mongodb.driver" );
         //mongoLogger.setLevel(Level.WARNING);
-        Config config = TobiasAPI.getInstance().getConfigManager().getConfig("settings.json");
+        this.id = id;
 
-        String mongoUser = config.getString("mongodb-username");
-        String mongoPass = config.getString("mongodb-password");
-        String mongoHost = config.getString("mongodb-host");
-        String mongoDatabase = config.getString("mongodb-db");
-        String mongoAuthDatabase = config.getString("mongodb-authdb");
 
         ConnectionString connString = new ConnectionString(
-                "mongodb://" + mongoUser + ":" + mongoPass + "@" + mongoHost + "/" + mongoAuthDatabase + "?w=majority"
+                "mongodb://" + username + ":" + password + "@" + host + "/" + authdb + "?w=majority"
         );
         MongoClientSettings settings = MongoClientSettings.builder()
                 .applyConnectionString(connString)
@@ -34,11 +29,11 @@ public class MongoDB {
                 .build();
         client = MongoClients.create(settings);
 
-        database = client.getDatabase(mongoDatabase);
+        mongoDatabase = client.getDatabase(database);
     }
 
     public MongoDatabase getDatabase() {
-        return database;
+        return mongoDatabase;
     }
 
     public String getId() {

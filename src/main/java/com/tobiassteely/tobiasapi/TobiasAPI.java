@@ -17,55 +17,50 @@ public class TobiasAPI {
     private ConfigManager configManager;
     private MongoManager mongoManager;
     private CommandManager commandManager;
-    private boolean databaseSupport;
-    private boolean commandSupport;
-    private boolean webServerSupport;
     private Log log;
 
-    public TobiasAPI(String configDirectory, boolean commandSupport, boolean databaseSupport, boolean webServerSupport, String databaseID) {
+    public TobiasAPI(ConfigManager configManager, MongoManager mongoManager, CommandManager commandManager) {
         instance = this;
 
         log = new Log();
 
         // Load database
-        this.databaseSupport = databaseSupport;
-        if(databaseSupport) {
-            if(databaseID != null) {
-                this.mongoManager = new MongoManager(new MongoDB(databaseID));
-            } else {
-                log.sendMessage(2, "The database server has not started, you are missing the ID.");
-            }
-        }
-
-        // Load config manager
-        this.configManager = new ConfigManager(configDirectory);
-
-        // Load command system
-        this.commandSupport = commandSupport;
-        if(commandSupport) {
-            this.commandManager = new CommandManager();
-        }
-
-        // Load web server
-        this.webServerSupport = webServerSupport;
-        if(webServerSupport) {
-            // setup web server system
-        }
+        this.configManager = configManager;
+        this.mongoManager = mongoManager;
+        this.commandManager = commandManager;
     }
 
     public ConfigManager getConfigManager() {
+        if(configManager == null) {
+            log.sendMessage(2, "The config system is not configured this WILL error!");
+        }
         return configManager;
     }
 
     public CommandManager getCommandManager() {
+        if(commandManager == null) {
+            log.sendMessage(2, "The command system is not configured this WILL error!");
+        }
         return commandManager;
     }
 
     public MongoManager getMongoManager() {
-        if(!databaseSupport) {
+        if(mongoManager == null) {
             log.sendMessage(2, "The database is not configured this WILL error!");
         }
         return mongoManager;
+    }
+
+    public boolean isConfigEnabled() {
+        return configManager != null;
+    }
+
+    public boolean isCommandEnabled() {
+        return commandManager != null;
+    }
+
+    public boolean isMongoEnabled() {
+        return mongoManager != null;
     }
 
     public Log getLog() {

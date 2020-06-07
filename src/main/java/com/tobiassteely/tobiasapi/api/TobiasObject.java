@@ -8,35 +8,24 @@ import com.tobiassteely.tobiasapi.database.MongoManager;
 
 public class TobiasObject {
 
-    private TobiasAPI tobiasAPI;
-    private ConfigManager configManager;
-    private MongoManager mongoManager;
-    private CommandManager commandManager;
-    private Log log;
-
-    public TobiasObject() {
-        this.tobiasAPI = TobiasAPI.getInstance();
-        this.configManager = tobiasAPI.getConfigManager();
-        this.mongoManager = tobiasAPI.getMongoManager();
-    }
-
     public TobiasAPI getTobiasAPI() {
-        return tobiasAPI;
+        return TobiasAPI.getInstance();
     }
 
     public Log getLog() {
-        return log;
+        return TobiasAPI.getInstance().getLog();
     }
 
     public CommandManager getCommandManager() {
-        return commandManager;
+        return TobiasAPI.getInstance().getCommandManager();
     }
 
     public ConfigManager getConfigManager() {
-        return configManager;
+        return TobiasAPI.getInstance().getConfigManager();
     }
 
     public MongoManager getMongoManager() {
-        return mongoManager;
+        return TobiasAPI.getInstance().getMongoManager();
     }
+
 }

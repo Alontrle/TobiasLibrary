@@ -4,7 +4,7 @@ import com.tobiassteely.tobiasapi.api.TobiasObject;
 
 import java.util.HashMap;
 
-public class ManagerCache extends TobiasObject {
+public class ManagerCache {
 
     private HashMap<String, Object> cache;
 

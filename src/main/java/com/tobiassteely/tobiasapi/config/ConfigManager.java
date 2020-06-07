@@ -7,7 +7,7 @@ public class ConfigManager extends ManagerParent {
     private String baseDirectory;
 
     public ConfigManager(String baseDirectory) {
-        super(true);
+        super(false);
         this.baseDirectory = baseDirectory;
     }
 
@@ -29,6 +29,11 @@ public class ConfigManager extends ManagerParent {
 
     public void removeConfig(String configName) {
         removeObject(configName);
+    }
+
+    @Override
+    public void reload() {
+        super.reload();
     }
 
 }
