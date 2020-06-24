@@ -47,7 +47,7 @@ public class HelpCommand extends TobiasObject {
     }
 
     public Command build() {
-        return new Command("Core", "Help", new String[] {"help", "?"}, "help", "Sends this message",  Collections.singletonList(executor));
+        return new Command("Core", "Help", new String[] {"help", "?"}, "help", "Sends this message", null, Collections.singletonList(executor));
     }
 
 

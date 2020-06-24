@@ -15,25 +15,31 @@ public class Command extends ManagerObject {
     private String description;
     private List<CommandExecutor> executors;
     private String usage;
+    private String permission;
     private String[] activators;
 
-    public Command(String module, String name, String[] activators, String usage, String description, List<CommandExecutor> executors) {
+    public Command(String module, String name, String[] activators, String usage, String description, String permission, List<CommandExecutor> executors) {
         super(name);
         this.module = module;
         this.name = name;
         this.description = description;
         this.executors = executors;
         this.activators = activators;
+        this.permission = permission;
         this.usage = usage;
     }
 
     public ArrayList<CommandResponse> run(String[] args, CommandData data) {
         ArrayList<CommandResponse> responses = new ArrayList<>();
-        for(CommandExecutor executor : executors) {
-            CommandResponse response = executor.run(name, args, data);
-            if(response != null) {
-                responses.add(response);
+        if(permission == null || data.getUser().hasPermission(permission)) {
+            for (CommandExecutor executor : executors) {
+                CommandResponse response = executor.run(name, args, data);
+                if (response != null) {
+                    responses.add(response);
+                }
             }
+        } else {
+            responses.add(getCommandManager().getPermissionError().getResponse(args, data));
         }
         return responses;
     }
@@ -60,5 +66,14 @@ public class Command extends ManagerObject {
 
     public List<CommandExecutor> getExecutors() {
         return executors;
+    }
+
+    public Command setExecutors(List<CommandExecutor> executors) {
+        this.executors = executors;
+        return this;
+    }
+
+    public String getPermission() {
+        return permission;
     }
 }

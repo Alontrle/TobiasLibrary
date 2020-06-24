@@ -3,6 +3,7 @@ package com.tobiassteely.tobiasapi.command;
 import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.api.manager.ManagerCache;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
+import com.tobiassteely.tobiasapi.command.cmd.EndCommand;
 import com.tobiassteely.tobiasapi.command.cmd.HelpCommand;
 import com.tobiassteely.tobiasapi.command.data.CommandData;
 import com.tobiassteely.tobiasapi.command.permission.user.PermissionUser;
@@ -20,15 +21,16 @@ public class CommandManager extends ManagerParent {
 
     private ExecutorService executor;
     private CommandWorker commandWorker;
-
     private CommandResponder responder;
     private String welcome;
     private boolean commandLine;
+    private CommandPermissionError permissionError;
 
     public CommandManager(String welcome, boolean commandLine) {
         super(false);
         this.welcome = welcome;
         this.commandLine = commandLine;
+        this.permissionError = (args, data) -> new CommandResponse(data).setTitle("Error!").setDescription("You do not have permission for that command.");
     }
 
     public CommandResponder getResponder() {
@@ -110,6 +112,18 @@ public class CommandManager extends ManagerParent {
         return commandLine;
     }
 
+    public Command getCommand(String key) {
+        return (Command)getObjectWithKey(key);
+    }
+
+    public CommandPermissionError getPermissionError() {
+        return permissionError;
+    }
+
+    public void setPermissionError(CommandPermissionError permissionError) {
+        this.permissionError = permissionError;
+    }
+
     public void reload() {
         super.reload();
         addCache("activators", new ManagerCache());
@@ -119,7 +133,7 @@ public class CommandManager extends ManagerParent {
         this.responder = new BaseCommandResponder();
 
         registerCommand(new HelpCommand().build());
-        //registerCommand(new EndCommand().build());
+        registerCommand(new EndCommand().build());
     }
 
 }

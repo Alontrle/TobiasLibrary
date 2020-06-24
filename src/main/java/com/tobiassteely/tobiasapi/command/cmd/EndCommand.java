@@ -24,7 +24,7 @@ public class EndCommand {
     }
 
     public Command build() {
-        return new Command("Core", "End", new String[] {"end", "shutdown"}, "end", "Shutdown the bot", Collections.singletonList(executor));
+        return new Command("Core", "End", new String[] {"end", "shutdown"}, "end", "Shutdown the bot", "core.end", Collections.singletonList(executor));
     }
 
 }
