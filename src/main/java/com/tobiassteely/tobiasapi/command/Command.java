@@ -1,30 +1,41 @@
 package com.tobiassteely.tobiasapi.command;
 
+import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
+import com.tobiassteely.tobiasapi.command.data.CommandData;
+import com.tobiassteely.tobiasapi.command.response.CommandResponse;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Command extends ManagerObject {
 
     private String module;
     private String name;
     private String description;
-    private int staffLevel;
-    private CommandExecutor executor;
+    private List<CommandExecutor> executors;
     private String usage;
     private String[] activators;
 
-    public Command(String module, String name, String[] activators, String usage, String description, int staffLevel, CommandExecutor executor) {
+    public Command(String module, String name, String[] activators, String usage, String description, List<CommandExecutor> executors) {
         super(name);
         this.module = module;
         this.name = name;
         this.description = description;
-        this.staffLevel = staffLevel;
-        this.executor = executor;
+        this.executors = executors;
         this.activators = activators;
         this.usage = usage;
     }
 
-    public void run(String rawCommand, String[] args, String inputType) {
-        executor.run(name, args, inputType);
+    public ArrayList<CommandResponse> run(String[] args, CommandData data) {
+        ArrayList<CommandResponse> responses = new ArrayList<>();
+        for(CommandExecutor executor : executors) {
+            CommandResponse response = executor.run(name, args, data);
+            if(response != null) {
+                responses.add(response);
+            }
+        }
+        return responses;
     }
 
     public String getName() {
@@ -39,10 +50,6 @@ public class Command extends ManagerObject {
         return module;
     }
 
-    public int getStaffLevel() {
-        return staffLevel;
-    }
-
     public String[] getActivators() {
         return activators;
     }
@@ -51,7 +58,7 @@ public class Command extends ManagerObject {
         return usage;
     }
 
-    public CommandExecutor getExecutor() {
-        return executor;
+    public List<CommandExecutor> getExecutors() {
+        return executors;
     }
 }

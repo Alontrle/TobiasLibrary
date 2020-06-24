@@ -3,14 +3,16 @@ package com.tobiassteely.tobiasapi.command;
 import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.api.manager.ManagerCache;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
-import com.tobiassteely.tobiasapi.command.cmd.EndCommand;
 import com.tobiassteely.tobiasapi.command.cmd.HelpCommand;
+import com.tobiassteely.tobiasapi.command.data.CommandData;
+import com.tobiassteely.tobiasapi.command.permission.user.PermissionUser;
+import com.tobiassteely.tobiasapi.command.response.BaseCommandResponder;
+import com.tobiassteely.tobiasapi.command.response.CommandResponder;
+import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Vector;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -19,7 +21,7 @@ public class CommandManager extends ManagerParent {
     private ExecutorService executor;
     private CommandWorker commandWorker;
 
-    private CommandResponse response;
+    private CommandResponder responder;
     private String welcome;
     private boolean commandLine;
 
@@ -29,12 +31,12 @@ public class CommandManager extends ManagerParent {
         this.commandLine = commandLine;
     }
 
-    public CommandResponse getResponse() {
-        return response;
+    public CommandResponder getResponder() {
+        return responder;
     }
 
-    public void setResponse(CommandResponse response) {
-        this.response = response;
+    public void setResponder(CommandResponder responder) {
+        this.responder = responder;
     }
 
     public void registerCommand(Command command) {
@@ -49,11 +51,11 @@ public class CommandManager extends ManagerParent {
             getCache("activators").putObject(activator.toLowerCase(), command);
     }
 
-    public boolean runCommand(String input, String inputType) {
+    public boolean runRawCommandInput(String input, CommandData data) {
         String commandInput = input.split(" ")[0].toLowerCase();
         String[] args = Arrays.copyOfRange(input.split(" "), 1, input.split(" ").length);
 
-        if(runCommand(commandInput, args, inputType)) {
+        if(runCommand(commandInput, args, data)) {
             return true;
         }
 
@@ -61,19 +63,37 @@ public class CommandManager extends ManagerParent {
         return false;
     }
 
-    public boolean runCommand(String commandInput, String[] args, String inputType) {
+    public boolean runRawCommandInput(String input, String inputType, PermissionUser user) {
+        String commandInput = input.split(" ")[0].toLowerCase();
+        String[] args = Arrays.copyOfRange(input.split(" "), 1, input.split(" ").length);
+
+        if(runCommand(commandInput, args, new CommandData(null, inputType, user))) {
+            return true;
+        }
+
+        TobiasAPI.getInstance().getLog().sendMessage(2, "Unknown command, type \"?\" for a list of available commands.");
+        return false;
+    }
+
+    public boolean runCommand(String commandInput, String[] args, CommandData data) {
         if(getCache("activators").isCached(commandInput.toLowerCase())) {
             Command basicCommand = (Command)getCache("activators").getObject(commandInput.toLowerCase());
 
             Callable<Object> callableTask = () -> {
-                basicCommand.run(commandInput, args, inputType);
+                ArrayList<CommandResponse> responses = basicCommand.run(args, data);
+
+                for(CommandResponse response : responses) {
+                    getResponder().send(response);
+                }
                 return null;
             };
             executor.submit(callableTask);
+
             return true;
         } else {
             return false;
         }
+
     }
 
     public ArrayList<Command> getCommandsByModule(String module) {
@@ -96,9 +116,10 @@ public class CommandManager extends ManagerParent {
         addCache("modules", new ManagerCache());
         this.executor = Executors.newFixedThreadPool(10);
         this.commandWorker = new CommandWorker(welcome);
-        this.response = new BaseCommandResponse();
+        this.responder = new BaseCommandResponder();
 
         registerCommand(new HelpCommand().build());
-        registerCommand(new EndCommand().build());
+        //registerCommand(new EndCommand().build());
     }
+
 }

@@ -2,8 +2,8 @@ package com.tobiassteely.tobiasapi.database.worker.request;
 
 import com.mongodb.client.MongoCollection;
 import com.tobiassteely.tobiasapi.TobiasAPI;
-import com.tobiassteely.tobiasapi.database.MongoDocument;
 import com.tobiassteely.tobiasapi.api.worker.Worker;
+import com.tobiassteely.tobiasapi.database.MongoDocument;
 import org.bson.Document;
 
 import java.util.ArrayList;

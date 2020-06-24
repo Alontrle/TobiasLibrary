@@ -1,7 +1,5 @@
 package com.tobiassteely.tobiasapi.api.event;
 
-import com.tobiassteely.tobiasapi.api.event.EventManager;
-
 public class Event {
 
     private EventManager eventManager;

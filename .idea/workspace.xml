@@ -2,53 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2fdb121-d260-4cba-9d9e-2613cb44d153" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/TobiasBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/cmd/EndCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/cmd/HelpCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/ConsoleUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/data/CommandData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/permission/group/PermissionGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/permission/user/PermissionUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/response/CommandResponder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/response/CommandResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/TobiasAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/TobiasAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/TobiasObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/TobiasObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/log/BaseLogger.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/log/BaseLogger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/event/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/event/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/event/EventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/event/EventHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/event/EventManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/event/EventManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/manager/ManagerCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/manager/ManagerCache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/BaseCommandResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/BaseCommandResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/manager/ManagerObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/manager/ManagerObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/worker/ObjectWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/worker/ObjectWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/worker/Worker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/worker/Worker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/BaseCommandResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/Command.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandExecutor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandResponse.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandWorker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/type/basic/BasicCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/type/basic/BasicCommandExecutor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/type/legacy/LegacyCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/type/template/TemplateCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/type/template/TemplateManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/type/template/type/TextCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/config/ConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/config/ConfigManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/cmd/EndCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/cmd/EndCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/cmd/HelpCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/cmd/HelpCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/database/MongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/database/MongoDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/Test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/TobiasAPI-1.0-SNAPSHOT-all.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/TobiasAPI-1.0-SNAPSHOT-all.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/TobiasAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/TobiasAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/TobiasObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/TobiasObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/log/BaseLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/log/BaseLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/DependencyExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/DependencyExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/event/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/event/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/event/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/event/EventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/event/EventManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/event/EventManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/manager/ManagerCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/manager/ManagerCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/BaseCommandResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/BaseCommandResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/manager/ManagerObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/manager/ManagerObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/worker/ObjectWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/worker/ObjectWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/worker/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/worker/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/BaseCommandResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/response/BaseCommandResponder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandResponse.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/type/basic/BasicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/type/basic/BasicCommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/type/legacy/LegacyCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/type/template/TemplateCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/type/template/TemplateManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/type/template/type/TextCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/config/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/config/ConfigManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/cmd/EndCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/cmd/EndCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/cmd/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/cmd/HelpCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/database/MongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/database/MongoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/database/worker/request/RequestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/database/worker/request/RequestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/database/worker/request/RequestWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/database/worker/request/RequestWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/database/worker/response/ResponseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/database/worker/response/ResponseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/database/worker/response/ResponseWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/database/worker/response/ResponseWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

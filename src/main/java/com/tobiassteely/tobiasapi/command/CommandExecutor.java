@@ -1,11 +1,11 @@
 package com.tobiassteely.tobiasapi.command;
 
-import com.tobiassteely.tobiasapi.command.BaseCommandResponse;
+import com.tobiassteely.tobiasapi.command.data.CommandData;
+import com.tobiassteely.tobiasapi.command.permission.user.PermissionUser;
+import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 
 public interface CommandExecutor {
 
-    String command_line_input = "commandline";
-
-    void run(String name, String[] args, String inputType, Object... data);
+    CommandResponse run(String name, String[] args, CommandData data);
 
 }

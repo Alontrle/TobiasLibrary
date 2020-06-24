@@ -1,7 +1,5 @@
 package com.tobiassteely.tobiasapi.api.manager;
 
-import com.tobiassteely.tobiasapi.api.TobiasObject;
-
 import java.util.HashMap;
 
 public class ManagerCache {

@@ -1,7 +1,6 @@
 package com.tobiassteely.tobiasapi.api.event;
 
 import com.tobiassteely.tobiasapi.api.TobiasObject;
-import com.tobiassteely.tobiasapi.api.log.Log;
 
 import java.util.Vector;
 

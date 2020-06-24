@@ -1,6 +1,7 @@
 package com.tobiassteely.tobiasapi.command;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
+import com.tobiassteely.tobiasapi.command.data.CommandData;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -31,7 +32,7 @@ public class CommandWorker extends Thread {
             try {
                 String command = scanner.nextLine();
                 if(command != null)
-                    commandManager.runCommand(command, CommandExecutor.command_line_input);
+                    commandManager.runRawCommandInput(command, CommandData.command_line_input, new ConsoleUser());
             } catch (NoSuchElementException ignored) {}
         }
         System.exit(0);

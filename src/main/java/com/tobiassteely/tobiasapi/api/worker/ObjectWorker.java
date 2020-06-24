@@ -1,7 +1,6 @@
 package com.tobiassteely.tobiasapi.api.worker;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
-import com.tobiassteely.tobiasapi.api.log.Log;
 
 import java.util.ArrayList;
 
