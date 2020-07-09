@@ -73,6 +73,30 @@ public class Command extends ManagerObject {
         return this;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setModule(String module) {
+        this.module = module;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setActivators(String[] activators) {
+        this.activators = activators;
+    }
+
+    public void setUsage(String usage) {
+        this.usage = usage;
+    }
+
+    public void setPermission(String permission) {
+        this.permission = permission;
+    }
+
     public String getPermission() {
         return permission;
     }

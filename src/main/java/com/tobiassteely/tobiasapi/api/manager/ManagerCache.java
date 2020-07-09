@@ -25,4 +25,8 @@ public class ManagerCache {
     public void removeObject(String key) {
         cache.remove(key);
     }
+
+    public HashMap<String, Object> getCache() {
+        return cache;
+    }
 }

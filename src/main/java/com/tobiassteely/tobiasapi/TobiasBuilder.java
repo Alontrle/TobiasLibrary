@@ -26,7 +26,7 @@ public class TobiasBuilder {
         return this;
     }
 
-    public TobiasAPI build() {
+    public TobiasAPI build(boolean startCommandLine) {
         TobiasAPI api = new TobiasAPI(configManager, mongoManager, commandManager);
         if(api.isConfigEnabled()) {
             configManager.reload();
@@ -34,7 +34,9 @@ public class TobiasBuilder {
         if(api.isCommandEnabled()) {
             commandManager.reload();
             if(commandManager.isCommandLine()) {
-                commandManager.getCommandWorker().start();
+                if(startCommandLine) {
+                    commandManager.getCommandWorker().start();
+                }
             }
         }
         return api;
