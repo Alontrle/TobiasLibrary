@@ -14,22 +14,22 @@ public class MongoManager {
     private MongoDB mongoDB;
 
     public MongoManager(MongoDB mongoDB) {
-        this.requestWorker = new RequestWorker();
-        this.responseWorker = new ResponseWorker();
-
-        this.requestManager = new RequestManager();
-        this.responseManager = new ResponseManager();
+        this.mongoDB = mongoDB;
+        this.requestManager = new RequestManager(mongoDB.getDatabase().getCollection("requests"));
+        this.responseManager = new ResponseManager(mongoDB.getDatabase().getCollection("responses"));
+        this.requestWorker = new RequestWorker(mongoDB.getDatabase().getCollection("requests"));
+        this.responseWorker = new ResponseWorker(mongoDB.getDatabase().getCollection("responses"));
     }
 
     public void start() {
-        requestWorker.start();
-        responseWorker.start();
-
         requestManager.start();
         responseManager.start();
 
-        requestManager.loadManager();
-        responseManager.loadManager();
+        requestManager.loadManager(mongoDB.getId());
+        responseManager.loadManager(mongoDB.getId());
+
+        requestWorker.start();
+        responseWorker.start();
     }
 
     public MongoDB getMongoDB() {

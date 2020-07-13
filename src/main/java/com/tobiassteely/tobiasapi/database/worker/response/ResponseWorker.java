@@ -17,12 +17,12 @@ public class ResponseWorker extends Worker {
     private HashMap<Document, Document> replaceQueue;
     private MongoCollection<Document> responses;
 
-    public ResponseWorker() {
+    public ResponseWorker(MongoCollection<Document> responses) {
         super(50);
         this.addQueue = new ArrayList<>();
         this.removeStringIDQueue = new ArrayList<>();
         this.replaceQueue = new HashMap<>();
-        this.responses = TobiasAPI.getInstance().getMongoManager().getMongoDB().getDatabase().getCollection("responses");
+        this.responses = responses;
     }
 
     @Override

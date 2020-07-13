@@ -28,6 +28,10 @@ public class ManagerParent extends TobiasObject {
         cacheList.put(key, cache);
     }
 
+    protected void addCache(String key) {
+        cacheList.put(key, new ManagerCache());
+    }
+
     protected ManagerCache getCache(String key) {
         return cacheList.get(key);
     }
@@ -37,8 +41,12 @@ public class ManagerParent extends TobiasObject {
         getCache("key").putObject(object.getKey(), object);
     }
 
-    protected Object getObjectWithKey(String key) {
-        return getCache("key").getObject(key);
+    protected Object getObject(String key) {
+        return getObject("key", key);
+    }
+
+    protected Object getObject(String cache, String key) {
+        return getCache(cache).getObject(key);
     }
 
     protected void reload() {

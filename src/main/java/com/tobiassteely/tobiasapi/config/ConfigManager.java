@@ -13,7 +13,7 @@ public class ConfigManager extends ManagerParent {
 
     public Config getConfig(String configName) {
 
-        if(getObjectWithKey(configName) == null) {
+        if(getObject(configName) == null) {
             Config config;
             if(baseDirectory == null) {
                 config = new Config(configName);
@@ -24,7 +24,7 @@ public class ConfigManager extends ManagerParent {
             return config;
         }
 
-        return (Config) getObjectWithKey(configName);
+        return (Config) getObject(configName);
     }
 
     public void removeConfig(String configName) {

@@ -1,6 +1,7 @@
 package com.tobiassteely.tobiasapi.config;
 
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -173,7 +174,7 @@ public class Config extends ManagerObject {
         return (JSONObject)json.get(key);
     }
 
-    public JSONObject getJSONObject(String key) {
+    public JSONObject getJSON() {
         return json;
     }
 
@@ -181,8 +182,8 @@ public class Config extends ManagerObject {
         return ((Map<String, String>)json.get(key));
     }
 
-    public List<String> getStringList(String key) {
-        return (List<String>)json.get(key);
+    public JSONArray getList(String key) {
+        return (JSONArray)json.get(key);
     }
 
     public void clear() {

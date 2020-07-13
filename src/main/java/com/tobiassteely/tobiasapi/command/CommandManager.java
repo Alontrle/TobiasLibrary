@@ -113,7 +113,7 @@ public class CommandManager extends ManagerParent {
     }
 
     public Command getCommand(String key) {
-        return (Command)getObjectWithKey(key);
+        return (Command)getObject(key);
     }
 
     public CommandPermissionError getPermissionError() {

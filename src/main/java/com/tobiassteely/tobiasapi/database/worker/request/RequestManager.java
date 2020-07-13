@@ -15,11 +15,11 @@ public class RequestManager extends Worker {
     private List<RequestEventHandler> events;
     private List<String> recentIDs;
 
-    public RequestManager() {
+    public RequestManager(MongoCollection<Document> requests) {
         super(50);
         this.events = new Vector<>();
         this.recentIDs = new Vector<>();
-        this.requests = TobiasAPI.getInstance().getMongoManager().getMongoDB().getDatabase().getCollection("requests");
+        this.requests = requests;
     }
 
     public void registerHandler(RequestEventHandler eventHandler) {
@@ -44,8 +44,8 @@ public class RequestManager extends Worker {
         return true;
     }
 
-    public void loadManager() {
-        for (Document doc : requests.find(new Document("destination", TobiasAPI.getInstance().getMongoManager().getMongoDB().getId()))) {
+    public void loadManager(String id) {
+        for (Document doc : requests.find(new Document("destination", id))) {
             TobiasAPI.getInstance().getMongoManager().getRequestWorker().removeDocument(doc.getString("id"));
 
             for (RequestEventHandler eventHandler : events) {

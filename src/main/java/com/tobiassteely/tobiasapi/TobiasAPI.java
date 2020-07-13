@@ -50,6 +50,18 @@ public class TobiasAPI {
         return mongoManager;
     }
 
+    public void setMongoManager(MongoManager mongoManager) {
+        this.mongoManager = mongoManager;
+    }
+
+    public void setConfigManager(ConfigManager configManager) {
+        this.configManager = configManager;
+    }
+
+    public void setCommandManager(CommandManager commandManager) {
+        this.commandManager = commandManager;
+    }
+
     public boolean isConfigEnabled() {
         return configManager != null;
     }

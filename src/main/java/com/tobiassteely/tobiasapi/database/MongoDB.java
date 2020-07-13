@@ -18,6 +18,9 @@ public class MongoDB {
         this.id = id;
 
 
+//        ConnectionString connString = new ConnectionString(
+//                "mongodb://" + username + ":" + password + "@" + host + "/" + authdb + "?w=majority"
+//        );
         ConnectionString connString = new ConnectionString(
                 "mongodb://" + username + ":" + password + "@" + host + "/" + authdb + "?w=majority"
         );
