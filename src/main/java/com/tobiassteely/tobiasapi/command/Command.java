@@ -17,6 +17,7 @@ public class Command extends ManagerObject {
     private String usage;
     private String permission;
     private String[] activators;
+    private boolean consoleSupported;
 
     public Command(String module, String name, String[] activators, String usage, String description, String permission, List<CommandExecutor> executors) {
         super(name);
@@ -27,6 +28,23 @@ public class Command extends ManagerObject {
         this.activators = activators;
         this.permission = permission;
         this.usage = usage;
+        this.consoleSupported = true;
+    }
+
+    public Command(String module, String name, String[] activators, String usage, String description, String permission, List<CommandExecutor> executors, boolean consoleSupported) {
+        super(name);
+        this.module = module;
+        this.name = name;
+        this.description = description;
+        this.executors = executors;
+        this.activators = activators;
+        this.permission = permission;
+        this.usage = usage;
+        this.consoleSupported = consoleSupported;
+    }
+
+    public boolean isConsoleSupported() {
+        return consoleSupported;
     }
 
     public ArrayList<CommandResponse> run(String[] args, CommandData data) {

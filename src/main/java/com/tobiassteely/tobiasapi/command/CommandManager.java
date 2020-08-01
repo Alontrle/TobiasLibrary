@@ -73,13 +73,19 @@ public class CommandManager extends ManagerParent {
             return true;
         }
 
-        TobiasAPI.getInstance().getLog().sendMessage(2, "Unknown command, type \"?\" for a list of available commands.");
+        if(user instanceof ConsoleUser) {
+            TobiasAPI.getInstance().getLog().sendMessage(2, "Unknown command, type \"?\" for a list of available commands.");
+        }
         return false;
     }
 
     public boolean runCommand(String commandInput, String[] args, CommandData data) {
         if(getCache("activators").isCached(commandInput.toLowerCase())) {
             Command basicCommand = (Command)getCache("activators").getObject(commandInput.toLowerCase());
+
+            if(!basicCommand.isConsoleSupported() && data.getUser() instanceof ConsoleUser) {
+                return false;
+            }
 
             Callable<Object> callableTask = () -> {
                 ArrayList<CommandResponse> responses = basicCommand.run(args, data);
