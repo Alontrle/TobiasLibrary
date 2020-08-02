@@ -1,7 +1,6 @@
 package com.tobiassteely.tobiasapi.command;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
-import com.tobiassteely.tobiasapi.command.data.CommandData;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;

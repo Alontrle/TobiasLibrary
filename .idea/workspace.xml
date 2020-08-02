@@ -5,7 +5,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/TobiasAPI-1.0-SNAPSHOT-all.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/TobiasAPI-1.0-SNAPSHOT-all.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandPermissionError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandPermissionError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/cmd/EndCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/cmd/EndCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/cmd/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/cmd/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/data/CommandData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/response/CommandResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/response/CommandResponse.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

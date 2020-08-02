@@ -19,7 +19,7 @@ public class HelpCommand extends TobiasObject {
     }
 
     public CommandExecutor getCode() {
-        return (name, args, data) -> {
+        return (data) -> {
             HashMap<String, ArrayList<String>> commands = new HashMap<>();
 
             for(ManagerObject object : getCommandManager().getList()) {

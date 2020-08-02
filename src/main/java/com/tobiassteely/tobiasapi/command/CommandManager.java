@@ -5,7 +5,6 @@ import com.tobiassteely.tobiasapi.api.manager.ManagerCache;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import com.tobiassteely.tobiasapi.command.cmd.EndCommand;
 import com.tobiassteely.tobiasapi.command.cmd.HelpCommand;
-import com.tobiassteely.tobiasapi.command.data.CommandData;
 import com.tobiassteely.tobiasapi.command.permission.user.PermissionUser;
 import com.tobiassteely.tobiasapi.command.response.BaseCommandResponder;
 import com.tobiassteely.tobiasapi.command.response.CommandResponder;
@@ -53,23 +52,11 @@ public class CommandManager extends ManagerParent {
             getCache("activators").putObject(activator.toLowerCase(), command);
     }
 
-    public boolean runRawCommandInput(String input, CommandData data) {
-        String commandInput = input.split(" ")[0].toLowerCase();
-        String[] args = Arrays.copyOfRange(input.split(" "), 1, input.split(" ").length);
-
-        if(runCommand(commandInput, args, data)) {
-            return true;
-        }
-
-        TobiasAPI.getInstance().getLog().sendMessage(2, "Unknown command, type \"?\" for a list of available commands.");
-        return false;
-    }
-
     public boolean runRawCommandInput(String input, String inputType, PermissionUser user) {
         String commandInput = input.split(" ")[0].toLowerCase();
         String[] args = Arrays.copyOfRange(input.split(" "), 1, input.split(" ").length);
 
-        if(runCommand(commandInput, args, new CommandData(null, inputType, user))) {
+        if(runCommand(new CommandData(commandInput, args, null, inputType, user))) {
             return true;
         }
 
@@ -79,16 +66,16 @@ public class CommandManager extends ManagerParent {
         return false;
     }
 
-    public boolean runCommand(String commandInput, String[] args, CommandData data) {
-        if(getCache("activators").isCached(commandInput.toLowerCase())) {
-            Command basicCommand = (Command)getCache("activators").getObject(commandInput.toLowerCase());
+    public boolean runCommand(CommandData data) {
+        if(getCache("activators").isCached(data.getCommand().toLowerCase())) {
+            Command basicCommand = (Command)getCache("activators").getObject(data.getCommand().toLowerCase());
 
             if(!basicCommand.isConsoleSupported() && data.getUser() instanceof ConsoleUser) {
                 return false;
             }
 
             Callable<Object> callableTask = () -> {
-                ArrayList<CommandResponse> responses = basicCommand.run(args, data);
+                ArrayList<CommandResponse> responses = basicCommand.run(data);
 
                 for(CommandResponse response : responses) {
                     getResponder().send(response);

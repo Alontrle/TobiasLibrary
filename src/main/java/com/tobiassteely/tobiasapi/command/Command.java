@@ -1,8 +1,6 @@
 package com.tobiassteely.tobiasapi.command;
 
-import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.api.manager.ManagerObject;
-import com.tobiassteely.tobiasapi.command.data.CommandData;
 import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 
 import java.util.ArrayList;
@@ -47,17 +45,17 @@ public class Command extends ManagerObject {
         return consoleSupported;
     }
 
-    public ArrayList<CommandResponse> run(String[] args, CommandData data) {
+    public ArrayList<CommandResponse> run(CommandData data) {
         ArrayList<CommandResponse> responses = new ArrayList<>();
         if(permission == null || data.getUser().hasPermission(permission)) {
             for (CommandExecutor executor : executors) {
-                CommandResponse response = executor.run(name, args, data);
+                CommandResponse response = executor.run(data);
                 if (response != null) {
                     responses.add(response);
                 }
             }
         } else {
-            responses.add(getCommandManager().getPermissionError().getResponse(args, data));
+            responses.add(getCommandManager().getPermissionError().getResponse(data.getArgs(), data));
         }
         return responses;
     }

@@ -1,7 +1,7 @@
 package com.tobiassteely.tobiasapi.command.response;
 
 import com.tobiassteely.tobiasapi.api.TobiasObject;
-import com.tobiassteely.tobiasapi.command.data.CommandData;
+import com.tobiassteely.tobiasapi.command.CommandData;
 
 public class CommandResponse extends TobiasObject {
 
@@ -9,7 +9,7 @@ public class CommandResponse extends TobiasObject {
     private String description;
     private CommandData data;
 
-    public CommandResponse(CommandData data) {
+    public  CommandResponse(CommandData data) {
         this.data = data;
     }
 

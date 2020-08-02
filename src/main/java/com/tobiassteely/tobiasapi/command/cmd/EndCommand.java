@@ -16,7 +16,7 @@ public class EndCommand {
     }
 
     public CommandExecutor getCode() {
-        return (name, args, data) -> {
+        return (data) -> {
             TobiasAPI.getInstance().getLog().sendMessage(0, "Goodbye.");
             System.exit(0);
             return new CommandResponse(data).setDescription("Goodbye.");
