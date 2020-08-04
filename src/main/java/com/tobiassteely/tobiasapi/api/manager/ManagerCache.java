@@ -2,15 +2,15 @@ package com.tobiassteely.tobiasapi.api.manager;
 
 import java.util.HashMap;
 
-public class ManagerCache {
+public class ManagerCache<T> {
 
-    private HashMap<String, Object> cache;
+    private HashMap<String, T> cache;
 
     public ManagerCache() {
         cache = new HashMap<>();
     }
 
-    public void putObject(String key, Object object) {
+    public void putObject(String key, T object) {
         cache.put(key, object);
     }
 
@@ -18,7 +18,7 @@ public class ManagerCache {
         return cache.containsKey(key);
     }
 
-    public Object getObject(String key) {
+    public T getObject(String key) {
         return cache.get(key);
     }
 
@@ -26,7 +26,7 @@ public class ManagerCache {
         cache.remove(key);
     }
 
-    public HashMap<String, Object> getCache() {
+    public HashMap<String, T> getCache() {
         return cache;
     }
 }

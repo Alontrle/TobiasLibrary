@@ -2,6 +2,7 @@ package com.tobiassteely.tobiasapi.api;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.api.log.Log;
+import com.tobiassteely.tobiasapi.command.Command;
 import com.tobiassteely.tobiasapi.command.CommandManager;
 import com.tobiassteely.tobiasapi.config.ConfigManager;
 import com.tobiassteely.tobiasapi.database.MongoManager;

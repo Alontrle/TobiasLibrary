@@ -2,7 +2,7 @@ package com.tobiassteely.tobiasapi.config;
 
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 
-public class ConfigManager extends ManagerParent {
+public class ConfigManager extends ManagerParent<Config> {
 
     private String baseDirectory;
 
@@ -24,7 +24,7 @@ public class ConfigManager extends ManagerParent {
             return config;
         }
 
-        return (Config) getObject(configName);
+        return getObject(configName);
     }
 
     public void removeConfig(String configName) {

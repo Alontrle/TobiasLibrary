@@ -16,7 +16,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class CommandManager extends ManagerParent {
+public class CommandManager extends ManagerParent<Command> {
 
     private ExecutorService executor;
     private CommandWorker commandWorker;

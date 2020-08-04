@@ -1,6 +1,7 @@
 package com.tobiassteely.tobiasapi.api.manager;
 
 import com.tobiassteely.tobiasapi.api.TobiasObject;
+import com.tobiassteely.tobiasapi.config.Config;
 
 public class ManagerObject extends TobiasObject {
 
@@ -13,4 +14,6 @@ public class ManagerObject extends TobiasObject {
     public String getKey() {
         return key;
     }
+
+
 }
