@@ -1,2 +1,2 @@
-# TobiasAPI
- Just an api I made for myself
+# TobiasLibrary
+ Just a library I made for myself
