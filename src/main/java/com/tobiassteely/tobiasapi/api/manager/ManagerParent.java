@@ -16,18 +16,20 @@ public class ManagerParent<T extends ManagerObject> extends TobiasObject {
     private Config settings = null;
 
     protected ManagerParent(boolean loadNow) {
+        list = new Vector<>();
+        cacheList = new ConcurrentHashMap<>();
+        cacheList.put("key", new ManagerCache());
         if(loadNow) {
             reload();
-        } else {
-            list = new Vector<>();
-            cacheList = new ConcurrentHashMap<>();
-            cacheList.put("key", new ManagerCache());
         }
     }
 
     protected ManagerParent(boolean loadNow, String settings) {
-        this(loadNow);
+        this(false);
         this.settings = getConfigManager().getConfig(settings);
+        if(loadNow) {
+            reload();
+        }
     }
 
     public List<T> getList() {
@@ -61,8 +63,6 @@ public class ManagerParent<T extends ManagerObject> extends TobiasObject {
 
     protected void reload() {
         list = new Vector<>();
-        cacheList = new ConcurrentHashMap<>();
-        cacheList.put("key", new ManagerCache());
 
         if(settings != null) {
             for (Object obj : settings.getJSON().keySet()) {

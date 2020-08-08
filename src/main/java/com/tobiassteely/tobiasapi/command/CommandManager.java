@@ -24,11 +24,13 @@ public class CommandManager extends ManagerParent<Command> {
     private String welcome;
     private boolean commandLine;
     private CommandPermissionError permissionError;
+    private CommandRunCheck commandRunCheck;
 
     public CommandManager(String welcome, boolean commandLine) {
         super(false);
         this.welcome = welcome;
         this.commandLine = commandLine;
+        this.commandRunCheck = (data) -> true;
         this.permissionError = (args, data) -> new CommandResponse(data).setTitle("Error!").setDescription("You do not have permission for that command.");
     }
 
@@ -38,6 +40,10 @@ public class CommandManager extends ManagerParent<Command> {
 
     public void setResponder(CommandResponder responder) {
         this.responder = responder;
+    }
+
+    public void setCommandRunCheck(CommandRunCheck commandRunCheck) {
+        this.commandRunCheck = commandRunCheck;
     }
 
     public void registerCommand(Command command) {
@@ -74,15 +80,17 @@ public class CommandManager extends ManagerParent<Command> {
                 return false;
             }
 
-            Callable<Object> callableTask = () -> {
-                ArrayList<CommandResponse> responses = basicCommand.run(data);
+            if(commandRunCheck.check(data)) {
+                Callable<Object> callableTask = () -> {
+                    ArrayList<CommandResponse> responses = basicCommand.run(data);
 
-                for(CommandResponse response : responses) {
-                    getResponder().send(response);
-                }
-                return null;
-            };
-            executor.submit(callableTask);
+                    for (CommandResponse response : responses) {
+                        getResponder().send(response);
+                    }
+                    return null;
+                };
+                executor.submit(callableTask);
+            }
 
             return true;
         } else {

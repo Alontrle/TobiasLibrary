@@ -10,8 +10,6 @@ public interface PermissionGroup {
 
     boolean hasPermission(String permission);
 
-    int getLevel();
-
     String getIdentifier();
 
 }
