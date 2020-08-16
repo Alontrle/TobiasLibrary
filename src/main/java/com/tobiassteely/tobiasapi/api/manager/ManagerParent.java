@@ -99,7 +99,7 @@ public class ManagerParent<T extends ManagerObject> extends TobiasObject {
 
     public void save() {
         settings.reset();
-        for(T obj : list) {
+        for(T obj : new Vector<>(list)) {
             JSONObject json = saveObject(obj);
             if(json != null) {
                 settings.set(obj.getKey(), json);
