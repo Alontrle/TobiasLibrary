@@ -15,5 +15,7 @@ public class ManagerObject extends TobiasObject {
         return key;
     }
 
-
+    public void setKey(String key) {
+        this.key = key;
+    }
 }

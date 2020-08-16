@@ -125,9 +125,7 @@ public class Config extends ManagerObject {
     }
 
     public void reset() {
-        System.out.println("Reset 0");
         this.json = new JSONObject();
-        System.out.println("Reset 1");
     }
 
     public void set(String key, Object value) {

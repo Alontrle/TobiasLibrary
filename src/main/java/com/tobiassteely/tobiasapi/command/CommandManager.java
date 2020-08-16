@@ -27,7 +27,7 @@ public class CommandManager extends ManagerParent<Command> {
     private CommandRunCheck commandRunCheck;
 
     public CommandManager(String welcome, boolean commandLine) {
-        super(false);
+        super("API.Command", false);
         this.welcome = welcome;
         this.commandLine = commandLine;
         this.commandRunCheck = (data) -> true;

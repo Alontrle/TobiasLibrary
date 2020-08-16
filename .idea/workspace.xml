@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2fdb121-d260-4cba-9d9e-2613cb44d153" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandRunCheck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/manager/ManagerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/manager/Managers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -11,28 +12,30 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/TobiasAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/TobiasAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/TobiasBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/TobiasBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/TobiasObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/TobiasObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/manager/ManagerObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/manager/ManagerObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/manager/ManagerParent.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/api/manager/ManagerParent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/Command.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandExecutor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/CommandManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/permission/group/PermissionGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/permission/group/PermissionGroup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/cmd/EndCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/cmd/EndCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/cmd/HelpCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/command/cmd/HelpCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/config/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/config/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/config/ConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/tobiassteely/tobiasapi/config/ConfigManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/TobiasAPI-1.0-SNAPSHOT-all.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/TobiasAPI-1.0-SNAPSHOT-all.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/Dependency.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/DependencyExecutor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/DependencyInjector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/DependencyManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/DependencyObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/type/DependencyArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/type/DependencyDouble.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/type/DependencyInteger.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/type/DependencyLong.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/dependency/type/DependencyString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/shadowJar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/shadowJar/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/TobiasAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/TobiasAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/TobiasBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/TobiasBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/TobiasObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/TobiasObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/manager/ManagerObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/manager/ManagerObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/manager/ManagerParent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/api/manager/ManagerParent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/permission/group/PermissionGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/command/permission/group/PermissionGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/webserver/client/ClientRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/webserver/client/ClientServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/webserver/filler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/webserver/server/WebResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/webserver/server/WebServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/config/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/config/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tobiassteely/tobiasapi/config/ConfigManager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,8 +91,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>

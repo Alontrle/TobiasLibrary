@@ -49,9 +49,22 @@ public class Command extends ManagerObject {
         ArrayList<CommandResponse> responses = new ArrayList<>();
         if(permission == null || data.getUser().hasPermission(permission)) {
             for (CommandExecutor executor : executors) {
-                CommandResponse response = executor.run(data);
-                if (response != null) {
-                    responses.add(response);
+                try {
+                    CommandResponse response = executor.run(data);
+                    if (response != null) {
+                        responses.add(response);
+                    }
+                } catch (Exception ex) {
+                    getLog().sendMessage(2, "Error while running command: " + data.getCommand());
+                    ex.printStackTrace();
+
+                    StringBuilder builder = new StringBuilder();
+                    builder.append("Error `").append(ex.getMessage()).append("`\n");
+                    for(StackTraceElement element : ex.getStackTrace()) {
+                        builder.append("> ").append(element.toString()).append("\n");
+                    }
+
+                    responses.add(new CommandResponse(data).setTitle("Error while running command " + data.getCommand() + "!").setDescription(builder.toString()));
                 }
             }
         } else {

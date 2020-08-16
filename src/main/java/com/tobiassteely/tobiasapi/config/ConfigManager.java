@@ -7,7 +7,7 @@ public class ConfigManager extends ManagerParent<Config> {
     private String baseDirectory;
 
     public ConfigManager(String baseDirectory) {
-        super(false);
+        super("API.Config", false);
         this.baseDirectory = baseDirectory;
     }
 

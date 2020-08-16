@@ -1,5 +1,6 @@
 package com.tobiassteely.tobiasapi;
 
+import com.tobiassteely.tobiasapi.api.manager.Managers;
 import com.tobiassteely.tobiasapi.command.CommandManager;
 import com.tobiassteely.tobiasapi.config.ConfigManager;
 import com.tobiassteely.tobiasapi.database.MongoDB;
@@ -7,9 +8,14 @@ import com.tobiassteely.tobiasapi.database.MongoManager;
 
 public class TobiasBuilder {
 
+    private Managers manager;
     private ConfigManager configManager = null;
     private MongoManager mongoManager = null;
     private CommandManager commandManager = null;
+
+    public TobiasBuilder() {
+        this.manager = new Managers();
+    }
 
     public TobiasBuilder loadConfigManager(String basefolder) {
         this.configManager = new ConfigManager(basefolder);
@@ -27,7 +33,7 @@ public class TobiasBuilder {
     }
 
     public TobiasAPI build(boolean startCommandLine) {
-        TobiasAPI api = new TobiasAPI(configManager, mongoManager, commandManager);
+        TobiasAPI api = new TobiasAPI(manager, configManager, mongoManager, commandManager);
         if(api.isConfigEnabled()) {
             configManager.reload();
         }

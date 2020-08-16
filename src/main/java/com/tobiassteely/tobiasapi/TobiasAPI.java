@@ -1,6 +1,7 @@
 package com.tobiassteely.tobiasapi;
 
 import com.tobiassteely.tobiasapi.api.log.Log;
+import com.tobiassteely.tobiasapi.api.manager.Managers;
 import com.tobiassteely.tobiasapi.command.Command;
 import com.tobiassteely.tobiasapi.command.CommandManager;
 import com.tobiassteely.tobiasapi.config.ConfigManager;
@@ -17,10 +18,13 @@ public class TobiasAPI {
     private ConfigManager configManager;
     private MongoManager mongoManager;
     private CommandManager commandManager;
+    private Managers manager;
     private Log log;
 
-    public TobiasAPI(ConfigManager configManager, MongoManager mongoManager, CommandManager commandManager) {
+    public TobiasAPI(Managers manager, ConfigManager configManager, MongoManager mongoManager, CommandManager commandManager) {
         instance = this;
+
+        this.manager = manager;
 
         log = new Log();
 
