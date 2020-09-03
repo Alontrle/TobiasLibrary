@@ -36,13 +36,13 @@ public class HelpCommand extends TobiasObject {
             for(String module : commands.keySet()) {
                 ArrayList<String> lines = commands.get(module);
 
-                description.append("**").append(module).append(" Commands**\n");
+                description.append(module).append(" Commands\n");
                 for (String line : lines) {
                     description.append(line).append("\n");
                 }
             }
 
-            return new CommandResponse(data).setTitle("**Available Commands**").setDescription(description.toString());
+            return new CommandResponse(data).setTitle("Available Commands").setDescription(description.toString());
         };
     }
 

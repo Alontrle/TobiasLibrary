@@ -2,7 +2,7 @@ package com.tobiassteely.tobiasapi.api.manager;
 
 import java.util.HashMap;
 
-public class ManagerCache<T> {
+public class ManagerCache<T extends ManagerObjectInterface> {
 
     private HashMap<String, T> cache;
 
@@ -29,4 +29,5 @@ public class ManagerCache<T> {
     public HashMap<String, T> getCache() {
         return cache;
     }
+
 }

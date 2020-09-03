@@ -12,8 +12,8 @@ public class ObjectWorker extends Worker {
         return false; // OVERRIDE
     }
 
-    public ObjectWorker(long timer) {
-        super(timer);
+    public ObjectWorker(String name, long timer) {
+        super(name, timer);
         this.queue = new ArrayList<>();
     }
 
@@ -21,8 +21,10 @@ public class ObjectWorker extends Worker {
     public Boolean runWorker(long start) {
         while (true) {
 
-            if(System.currentTimeMillis() - start >= getTimer())
-                break;
+            if(super.getTimer() > 0) {
+                if (System.currentTimeMillis() - start >= getTimer())
+                    break;
+            }
 
             if(queue.size() == 0)
                 break;

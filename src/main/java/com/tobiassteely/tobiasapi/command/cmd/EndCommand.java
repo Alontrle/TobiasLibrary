@@ -1,6 +1,8 @@
 package com.tobiassteely.tobiasapi.command.cmd;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
+import com.tobiassteely.tobiasapi.api.manager.CoreManager;
+import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import com.tobiassteely.tobiasapi.command.Command;
 import com.tobiassteely.tobiasapi.command.CommandExecutor;
 import com.tobiassteely.tobiasapi.command.response.CommandResponse;
@@ -17,9 +19,12 @@ public class EndCommand {
 
     public CommandExecutor getCode() {
         return (data) -> {
-            TobiasAPI.getInstance().getLog().sendMessage(0, "Goodbye.");
+            for(ManagerParent parent : CoreManager.getInstance().getManagers()) {
+                parent.unload();
+            }
+
             System.exit(0);
-            return new CommandResponse(data).setDescription("Goodbye.");
+            return null;
         };
     }
 

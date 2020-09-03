@@ -1,8 +1,8 @@
 package com.tobiassteely.tobiasapi;
 
 import com.tobiassteely.tobiasapi.api.log.Log;
-import com.tobiassteely.tobiasapi.api.manager.Managers;
-import com.tobiassteely.tobiasapi.command.Command;
+import com.tobiassteely.tobiasapi.api.manager.CoreManager;
+import com.tobiassteely.tobiasapi.api.worker.WorkerManager;
 import com.tobiassteely.tobiasapi.command.CommandManager;
 import com.tobiassteely.tobiasapi.config.ConfigManager;
 import com.tobiassteely.tobiasapi.database.MongoManager;
@@ -18,13 +18,15 @@ public class TobiasAPI {
     private ConfigManager configManager;
     private MongoManager mongoManager;
     private CommandManager commandManager;
-    private Managers manager;
+    private CoreManager manager;
+    private WorkerManager workerManager;
     private Log log;
 
-    public TobiasAPI(Managers manager, ConfigManager configManager, MongoManager mongoManager, CommandManager commandManager) {
+    public TobiasAPI(CoreManager manager, WorkerManager workerManager, ConfigManager configManager, MongoManager mongoManager, CommandManager commandManager) {
         instance = this;
 
         this.manager = manager;
+        this.workerManager = workerManager;
 
         log = new Log();
 
@@ -81,5 +83,13 @@ public class TobiasAPI {
 
     public Log getLog() {
         return log;
+    }
+
+    public CoreManager getManager() {
+        return manager;
+    }
+
+    public WorkerManager getWorkerManager() {
+        return workerManager;
     }
 }

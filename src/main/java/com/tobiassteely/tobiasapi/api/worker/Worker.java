@@ -1,23 +1,28 @@
 package com.tobiassteely.tobiasapi.api.worker;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
+import com.tobiassteely.tobiasapi.api.manager.ManagerObjectInterface;
+import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 
-public class Worker extends Thread {
+public class Worker extends Thread implements ManagerObjectInterface {
 
     private long timer;
     private long start;
     private ArrayList<Long> ticks;
     private boolean isAlive;
     private boolean isPaused;
+    private String name;
 
-    public Worker(long timer) {
+    public Worker(String name, long timer) {
+        this.name = name;
         this.ticks = new ArrayList<>();
         this.timer = timer;
         this.start = 0;
         this.isAlive = false;
         this.isPaused = false;
+        WorkerManager.getInstance().addObject(this);
     }
 
     public Boolean runWorker(long start) {
@@ -37,11 +42,14 @@ public class Worker extends Thread {
             if(!isAlive)
                 break;
 
-            if(isPaused) {
-                try {
-                    Thread.sleep(50);
-                } catch (InterruptedException ex) {}
-                continue;
+            if(timer > 0) {
+                if (isPaused) {
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException ex) {
+                    }
+                    continue;
+                }
             }
 
             if ((System.currentTimeMillis() - lastLoop) < timer) {
@@ -51,12 +59,14 @@ public class Worker extends Thread {
                 }
                 tick();
             }
-            try {
-                long sleep = lastLoop + timer - System.currentTimeMillis() - 1;
-                if(sleep > 0)
-                    Thread.sleep(sleep);
-            } catch (InterruptedException ex) {}
-
+            if(timer > 0) {
+                try {
+                    long sleep = lastLoop + timer - System.currentTimeMillis() - 1;
+                    if (sleep > 0)
+                        Thread.sleep(sleep);
+                } catch (InterruptedException ex) {
+                }
+            }
             lastLoop = System.currentTimeMillis();
         }
         isAlive = false;
@@ -65,7 +75,6 @@ public class Worker extends Thread {
     public void stopWorker() {
         isAlive = false;
     }
-
 
     private void tick() {
         if(start == 0) {
@@ -78,21 +87,23 @@ public class Worker extends Thread {
     }
 
     public double[] getTPS() {
-        ArrayList<Long> temp = new ArrayList<>();
-        temp.addAll(ticks);
+        ArrayList<Long> temp = new ArrayList<>(ticks);
 
-        long totalTime = 0;
+        double totalTime = 0;
+        double lastTick = 0;
         for(long tick : ticks) {
-            totalTime += tick;
+            totalTime += tick - lastTick;
+            lastTick = tick;
         }
-        double averageTime = (double)totalTime / temp.size();
-        return new double[] {1 / averageTime, temp.size()};
+
+        double averageTime = totalTime / temp.size();
+        return new double[] {1000 / averageTime, temp.size()};
     }
 
 
     public String getStatus() {
         double[] tpsResults = getTPS();
-        return "Running at " + tpsResults[0] + "TPS, expected TPS is " + (1 / timer) + " TPS (n = " + tpsResults[1] + ")";
+        return "Running at " + ((int)(tpsResults[0] * 10000) / 10000.0) + " TPS, expected TPS is " + ((int)((1000.0 / timer) * 10000) / 10000.0) + " TPS (" + (int)tpsResults[1] + " Ticks in cache)";
     }
 
     public boolean isWorkerAlive() {
@@ -101,5 +112,27 @@ public class Worker extends Thread {
 
     public long getTimer() {
         return timer;
+    }
+
+    @Override
+    public String getKey() {
+        return name;
+    }
+
+    @Override
+    public void setKey(String key) {
+        this.name = key;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("Name", name);
+        jsonObject.put("Alive", isWorkerAlive());
+        if(isWorkerAlive()) {
+            jsonObject.put("Status", getStatus());
+        }
+
+        return jsonObject;
     }
 }

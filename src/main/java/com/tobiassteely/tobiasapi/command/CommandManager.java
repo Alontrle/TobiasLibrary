@@ -10,9 +10,9 @@ import com.tobiassteely.tobiasapi.command.response.BaseCommandResponder;
 import com.tobiassteely.tobiasapi.command.response.CommandResponder;
 import com.tobiassteely.tobiasapi.command.response.CommandResponse;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -25,9 +25,11 @@ public class CommandManager extends ManagerParent<Command> {
     private boolean commandLine;
     private CommandPermissionError permissionError;
     private CommandRunCheck commandRunCheck;
+    private Map<String, List<Command>> commandCache;
 
     public CommandManager(String welcome, boolean commandLine) {
-        super("API.Command", false);
+        super("API.Command", false, new CommandEventHandler());
+        this.commandCache = new ConcurrentHashMap<>();
         this.welcome = welcome;
         this.commandLine = commandLine;
         this.commandRunCheck = (data) -> true;
@@ -46,16 +48,14 @@ public class CommandManager extends ManagerParent<Command> {
         this.commandRunCheck = commandRunCheck;
     }
 
-    public void registerCommand(Command command) {
-        addObject(command);
-        if(!getCache("modules").isCached(command.getModule()))
-            getCache("modules").putObject(command.getModule(), new ArrayList<>());
+    @Override
+    public void addObject(Command command) {
+        super.addObject(command);
 
-        ArrayList<Object> commands = (ArrayList<Object>)getCache("modules").getObject(command.getModule());
-        commands.add(command);
-
-        for(String activator : command.getActivators())
-            getCache("activators").putObject(activator.toLowerCase(), command);
+        if(!commandCache.containsKey(command.getModule())) {
+            commandCache.put(command.getModule(), new Vector<>());
+        }
+        commandCache.get(command.getModule()).add(command);
     }
 
     public boolean runRawCommandInput(String input, String inputType, PermissionUser user) {
@@ -99,10 +99,8 @@ public class CommandManager extends ManagerParent<Command> {
 
     }
 
-    public ArrayList<Command> getCommandsByModule(String module) {
-        if(getCache("modules").isCached(module))
-            return (ArrayList<Command>)getCache("modules").getObject(module);
-        else return null;
+    public List<Command> getCommandsByModule(String module) {
+        return commandCache.get(module);
     }
 
     public CommandWorker getCommandWorker() {
@@ -127,14 +125,12 @@ public class CommandManager extends ManagerParent<Command> {
 
     public void reload() {
         super.reload();
-        addCache("activators", new ManagerCache());
-        addCache("modules", new ManagerCache());
         this.executor = Executors.newFixedThreadPool(10);
         this.commandWorker = new CommandWorker(welcome);
         this.responder = new BaseCommandResponder();
 
-        registerCommand(new HelpCommand().build());
-        registerCommand(new EndCommand().build());
+        addObject(new HelpCommand().build());
+        addObject(new EndCommand().build());
     }
 
 }

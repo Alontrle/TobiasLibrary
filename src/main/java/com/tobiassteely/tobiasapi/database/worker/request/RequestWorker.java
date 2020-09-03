@@ -18,7 +18,7 @@ public class RequestWorker extends Worker {
     private MongoCollection<Document> requests;
 
     public RequestWorker(MongoCollection<Document> requests) {
-        super(50);
+        super("API.MongoRequest", 50);
         this.addQueue = new ArrayList<>();
         this.removeQueue = new ArrayList<>();
         this.replaceQueue = new HashMap<>();

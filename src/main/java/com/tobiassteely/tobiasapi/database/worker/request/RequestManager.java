@@ -16,7 +16,7 @@ public class RequestManager extends Worker {
     private List<String> recentIDs;
 
     public RequestManager(MongoCollection<Document> requests) {
-        super(50);
+        super("API.MongoRequestM", 50);
         this.events = new Vector<>();
         this.recentIDs = new Vector<>();
         this.requests = requests;

@@ -18,7 +18,7 @@ public class ResponseWorker extends Worker {
     private MongoCollection<Document> responses;
 
     public ResponseWorker(MongoCollection<Document> responses) {
-        super(50);
+        super("API.MongoResponse", 50);
         this.addQueue = new ArrayList<>();
         this.removeStringIDQueue = new ArrayList<>();
         this.replaceQueue = new HashMap<>();

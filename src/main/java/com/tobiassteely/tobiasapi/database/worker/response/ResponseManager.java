@@ -16,7 +16,7 @@ public class ResponseManager extends Worker {
     private List<String> recentIDs;
 
     public ResponseManager(MongoCollection<Document> responses) {
-        super(50);
+        super("API.MongoResponseM", 50);
         this.events = new Vector<>();
         this.recentIDs = new Vector<>();
         this.responses = responses;

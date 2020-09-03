@@ -2,8 +2,7 @@ package com.tobiassteely.tobiasapi.api;
 
 import com.tobiassteely.tobiasapi.TobiasAPI;
 import com.tobiassteely.tobiasapi.api.log.Log;
-import com.tobiassteely.tobiasapi.api.manager.Managers;
-import com.tobiassteely.tobiasapi.command.Command;
+import com.tobiassteely.tobiasapi.api.manager.CoreManager;
 import com.tobiassteely.tobiasapi.command.CommandManager;
 import com.tobiassteely.tobiasapi.config.ConfigManager;
 import com.tobiassteely.tobiasapi.database.MongoManager;
@@ -30,8 +29,8 @@ public class TobiasObject {
         return TobiasAPI.getInstance().getMongoManager();
     }
 
-    public Managers getManager() {
-        return Managers.getInstance();
+    public CoreManager getManager() {
+        return CoreManager.getInstance();
     }
 
     public double convertToHours(long time) {
