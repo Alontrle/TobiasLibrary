@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efbaed58-9689-40b5-8f35-284c97f4b623" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/TobiasAPI-1.0.0-shaded.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/TobiasAPI-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/TobiasAPI-1.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-TobiasAPI-1.0.0.jar" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
