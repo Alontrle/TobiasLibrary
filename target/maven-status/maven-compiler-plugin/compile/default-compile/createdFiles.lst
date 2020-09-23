@@ -26,6 +26,7 @@ com\tobiassteely\tobiasapi\database\worker\response\RequestObject.class
 com\tobiassteely\tobiasapi\database\worker\request\RequestManager.class
 com\tobiassteely\tobiasapi\api\manager\ManagerObjectInterface.class
 com\tobiassteely\tobiasapi\api\manager\CoreManager.class
+com\tobiassteely\tobiasapi\script\ScriptSection.class
 com\tobiassteely\tobiasapi\command\cmd\EndCommand.class
 com\tobiassteely\tobiasapi\command\CommandEventHandler.class
 com\tobiassteely\tobiasapi\script\object\ScriptException.class

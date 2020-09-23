@@ -16,12 +16,10 @@ public class ScriptParser {
     }
 
     public Script parseScript() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(
-                "/Users/pankaj/Downloads/myfile.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader(file.toString()));
         String line = reader.readLine();
         while (line != null) {
             parseLine(line);
-
             // read next line
             line = reader.readLine();
         }

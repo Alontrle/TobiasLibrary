@@ -5,6 +5,7 @@ import com.tobiassteely.tobiasapi.script.object.ScriptException;
 import com.tobiassteely.tobiasapi.script.object.ScriptFunction;
 import com.tobiassteely.tobiasapi.script.object.ScriptNull;
 import com.tobiassteely.tobiasapi.script.object.ScriptObject;
+import jdk.nashorn.internal.objects.annotations.Getter;
 
 import java.lang.reflect.Parameter;
 import java.nio.file.Path;

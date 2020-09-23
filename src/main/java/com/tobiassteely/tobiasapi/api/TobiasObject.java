@@ -45,7 +45,7 @@ public class TobiasObject {
         return hours * 1000 * 60 * 60;
     }
 
-    private long getTime(String str) {
+    public long getTime(String str) {
         long time = 0;
 
         for(String section : str.toLowerCase().split(",")) {
