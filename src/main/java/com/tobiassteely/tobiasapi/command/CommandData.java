@@ -4,18 +4,29 @@ import com.tobiassteely.tobiasapi.command.ConsoleUser;
 import com.tobiassteely.tobiasapi.command.flag.CommandFlag;
 import com.tobiassteely.tobiasapi.command.permission.user.PermissionUser;
 
+import java.util.Map;
+
 public class CommandData<T> {
 
     private String command;
     private String[] args;
-    private CommandFlag[] flags;
+    private Map<CommandFlag, String> flags;
     private T data;
     private String inputType;
     private PermissionUser user;
 
     public static final String command_line_input = "commandline";
 
-    public CommandData(String command, String[] args, T data, String inputType, PermissionUser user, CommandFlag... flags) {
+    public CommandData(String command, String[] args, T data, String inputType, PermissionUser user) {
+        this.command = command;
+        this.args = args;
+        this.data = data;
+        this.inputType = inputType;
+        this.user = user;
+        this.flags = null;
+    }
+
+    public CommandData(String command, String[] args, T data, String inputType, PermissionUser user, Map<CommandFlag, String> flags) {
         this.command = command;
         this.args = args;
         this.data = data;
@@ -24,7 +35,7 @@ public class CommandData<T> {
         this.flags = flags;
     }
 
-    public CommandFlag[] getFlags() {
+    public Map<CommandFlag, String> getFlags() {
         return flags;
     }
 
