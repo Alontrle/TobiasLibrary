@@ -5,6 +5,7 @@ import com.tobiassteely.tobiasapi.api.manager.ManagerCache;
 import com.tobiassteely.tobiasapi.api.manager.ManagerParent;
 import com.tobiassteely.tobiasapi.command.cmd.EndCommand;
 import com.tobiassteely.tobiasapi.command.cmd.HelpCommand;
+import com.tobiassteely.tobiasapi.command.flag.FlagManager;
 import com.tobiassteely.tobiasapi.command.permission.user.PermissionUser;
 import com.tobiassteely.tobiasapi.command.response.BaseCommandResponder;
 import com.tobiassteely.tobiasapi.command.response.CommandResponder;
@@ -20,6 +21,7 @@ public class CommandManager extends ManagerParent<Command> {
 
     private ExecutorService executor;
     private CommandWorker commandWorker;
+    private FlagManager flagManager;
     private CommandResponder responder;
     private String welcome;
     private boolean commandLine;
@@ -32,8 +34,13 @@ public class CommandManager extends ManagerParent<Command> {
         this.commandCache = new ConcurrentHashMap<>();
         this.welcome = welcome;
         this.commandLine = commandLine;
+        this.flagManager = new FlagManager();
         this.commandRunCheck = (data) -> true;
         this.permissionError = (args, data) -> new CommandResponse(data).setTitle("Error!").setDescription("You do not have permission for that command.");
+    }
+
+    public FlagManager getFlagManager() {
+        return flagManager;
     }
 
     public CommandResponder getResponder() {

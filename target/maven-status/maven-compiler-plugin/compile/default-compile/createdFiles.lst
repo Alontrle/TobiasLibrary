@@ -30,8 +30,10 @@ com\tobiassteely\tobiasapi\script\ScriptSection.class
 com\tobiassteely\tobiasapi\command\cmd\EndCommand.class
 com\tobiassteely\tobiasapi\command\CommandEventHandler.class
 com\tobiassteely\tobiasapi\script\object\ScriptException.class
+com\tobiassteely\tobiasapi\command\flag\FlagManager.class
 com\tobiassteely\tobiasapi\config\ConfigManager.class
 com\tobiassteely\tobiasapi\database\worker\request\ResponseObject.class
+com\tobiassteely\tobiasapi\command\flag\CommandFlag.class
 com\tobiassteely\tobiasapi\command\CommandRunCheck.class
 com\tobiassteely\tobiasapi\api\log\BaseLogger.class
 com\tobiassteely\tobiasapi\database\worker\response\ResponseEventHandler.class
